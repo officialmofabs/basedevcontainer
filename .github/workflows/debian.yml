@@ -33,7 +33,7 @@ jobs:
 
   publish:
     if: |
-      github.repository == 'qdm12/basedevcontainer' &&
+      github.repository == 'officialmofabs/basedevcontainer' &&
       (
         github.event_name == 'push' ||
         github.event_name == 'release' ||
