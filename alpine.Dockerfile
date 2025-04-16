@@ -28,8 +28,13 @@ LABEL \
     org.opencontainers.image.url="https://github.com/officialmofabs/basedevcontainer" \
     org.opencontainers.image.documentation="https://github.com/officialmofabs/basedevcontainer" \
     org.opencontainers.image.source="https://github.com/officialmofabs/basedevcontainer" \
+<<<<<<< Updated upstream
     org.opencontainers.image.title="alpine base container" \
     org.opencontainers.image.description="Base Alpine container for Visual Studio Code Remote Containers development"
+=======
+    org.opencontainers.image.title="Base Dev container" \
+    org.opencontainers.image.description="Base Alpine development container for Visual Studio Code Dev Containers development"
+>>>>>>> Stashed changes
 ENV BASE_VERSION="${VERSION}-${CREATED}-${COMMIT}"
 
 # CA certificates
@@ -46,9 +51,15 @@ RUN chmod +x /root/.ssh.sh
 # Retro-compatibility symlink
 RUN ln -s /root/.ssh.sh /root/.windows.sh
 
+<<<<<<< Updated upstream
 WORKDIR /workspaces/vsproject
 
 # Setup shell for root and ecampusdev
+=======
+WORKDIR /media/developer/nsl/remote-dev-projec
+
+# Setup shell for root and vpcuser
+>>>>>>> Stashed changes
 ENTRYPOINT [ "/bin/zsh" ]
 RUN apk add -q --update --progress --no-cache zsh nano zsh-vcs
 ENV EDITOR=nano \

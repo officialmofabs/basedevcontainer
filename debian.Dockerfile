@@ -28,8 +28,13 @@ LABEL \
     org.opencontainers.image.url="https://github.com/officialmofabs/basedevcontainer" \
     org.opencontainers.image.documentation="https://github.com/officialmofabs/basedevcontainer" \
     org.opencontainers.image.source="https://github.com/officialmofabs/basedevcontainer" \
+<<<<<<< Updated upstream
     org.opencontainers.image.title="debian base container" \
     org.opencontainers.image.description="Base Debian development container for Visual Studio Code Remote Containers development"
+=======
+    org.opencontainers.image.title="Base Dev container Debian" \
+    org.opencontainers.image.description="Base Debian development container for Visual Studio Code Dev Containers development"
+>>>>>>> Stashed changes
 ENV BASE_VERSION="${VERSION}-${CREATED}-${COMMIT}"
 
 # CA certificates
@@ -41,7 +46,7 @@ RUN apt-get update -y && \
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends tzdata && \
     rm -r /var/cache/* /var/lib/apt/lists/*
-ENV TZ=
+ENV TZ=Europe/london
 
 # Setup Git and SSH
 # Workaround for older Debian in order to be able to sign commits

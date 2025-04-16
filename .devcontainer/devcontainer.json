@@ -2,10 +2,10 @@
     // See https://containers.dev/implementors/json_reference/
     // User defined settings
     "containerEnv": {
-        "TZ": ""
+        "TZ": "Europe/London"
     },
     // Fixed settings
-    "name": "project-dev",
+    "name": "remote-dev-project",
     "postCreateCommand": "~/.ssh.sh",
     "dockerComposeFile": "docker-compose.yml",
     "overrideCommand": true,
