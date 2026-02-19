@@ -1,20 +1,20 @@
 ARG DEBIAN_VERSION=12-slim
 
-ARG DOCKER_VERSION=v27.3.1
-ARG COMPOSE_VERSION=v2.29.7
-ARG BUILDX_VERSION=v0.17.1
+ARG DOCKER_VERSION=v25.0.2
+ARG COMPOSE_VERSION=v2.24.5
+ARG BUILDX_VERSION=v0.12.1
 ARG LOGOLS_VERSION=v1.3.7
 ARG BIT_VERSION=v1.1.2
-ARG GH_VERSION=v2.58.0
+ARG GH_VERSION=v2.43.1
 ARG DEVTAINR_VERSION=v0.6.0
 
-FROM qmcgaw/binpot:docker-${DOCKER_VERSION} AS docker
-FROM qmcgaw/binpot:compose-${COMPOSE_VERSION} AS compose
-FROM qmcgaw/binpot:buildx-${BUILDX_VERSION} AS buildx
-FROM qmcgaw/binpot:logo-ls-${LOGOLS_VERSION} AS logo-ls
-FROM qmcgaw/binpot:bit-${BIT_VERSION} AS bit
-FROM qmcgaw/binpot:gh-${GH_VERSION} AS gh
-FROM qmcgaw/devtainr:${DEVTAINR_VERSION} AS devtainr
+FROM officialmofabs/binpot:docker-${DOCKER_VERSION} AS docker
+FROM officialmofabs/binpot:compose-${COMPOSE_VERSION} AS compose
+FROM officialmofabs/binpot:buildx-${BUILDX_VERSION} AS buildx
+FROM officialmofabs/binpot:logo-ls-${LOGOLS_VERSION} AS logo-ls
+FROM officialmofabs/binpot:bit-${BIT_VERSION} AS bit
+FROM officialmofabs/binpot:gh-${GH_VERSION} AS gh
+FROM officialmofabs/devtainr:${DEVTAINR_VERSION} AS devtainr
 
 FROM debian:${DEBIAN_VERSION}
 ARG CREATED
@@ -25,11 +25,22 @@ LABEL \
     org.opencontainers.image.created=$CREATED \
     org.opencontainers.image.version=$VERSION \
     org.opencontainers.image.revision=$COMMIT \
+<<<<<<< HEAD
     org.opencontainers.image.url="https://github.com/ecampuslearning/basedevcontainer" \
     org.opencontainers.image.documentation="https://github.com/ecampuslearning/basedevcontainer" \
     org.opencontainers.image.source="https://github.com/officialmofabs/basedevcontainer" \
+=======
+    org.opencontainers.image.url="https://github.com/officialmofabs/basedevcontainer" \
+    org.opencontainers.image.documentation="https://github.com/officialmofabs/basedevcontainer" \
+    org.opencontainers.image.source="https://github.com/officialmofabs/basedevcontainer" \
+<<<<<<< Updated upstream
+    org.opencontainers.image.title="debian base container" \
+    org.opencontainers.image.description="Base Debian development container for Visual Studio Code Remote Containers development"
+=======
+>>>>>>> 77772f93c4f5c27d80f8dcc358329ae29e19a2fa
     org.opencontainers.image.title="Base Dev container Debian" \
     org.opencontainers.image.description="Base Debian development container for Visual Studio Code Dev Containers development"
+>>>>>>> Stashed changes
 ENV BASE_VERSION="${VERSION}-${CREATED}-${COMMIT}"
 
 # CA certificates
@@ -41,7 +52,11 @@ RUN apt-get update -y && \
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends tzdata && \
     rm -r /var/cache/* /var/lib/apt/lists/*
+<<<<<<< HEAD
 ENV TZ=Europe/London
+=======
+ENV TZ=Europe/london
+>>>>>>> 77772f93c4f5c27d80f8dcc358329ae29e19a2fa
 
 # Setup Git and SSH
 # Workaround for older Debian in order to be able to sign commits

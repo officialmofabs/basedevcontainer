@@ -2,10 +2,14 @@
     // See https://containers.dev/implementors/json_reference/
     // User defined settings
     "containerEnv": {
-        "TZ": ""
+        "TZ": "Europe/London"
     },
     // Fixed settings
+<<<<<<< HEAD
     "name": "Mosgarage-Base",
+=======
+    "name": "remote-dev-project",
+>>>>>>> 77772f93c4f5c27d80f8dcc358329ae29e19a2fa
     "postCreateCommand": "~/.ssh.sh",
     "dockerComposeFile": "docker-compose.yml",
     "overrideCommand": true,

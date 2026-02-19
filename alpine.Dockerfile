@@ -1,11 +1,11 @@
-ARG ALPINE_VERSION=3.20
+ARG ALPINE_VERSION=3.19
 
-ARG DOCKER_VERSION=v27.3.1
-ARG COMPOSE_VERSION=v2.29.7
-ARG BUILDX_VERSION=v0.17.1
+ARG DOCKER_VERSION=v25.0.2
+ARG COMPOSE_VERSION=v2.24.5
+ARG BUILDX_VERSION=v0.12.1
 ARG LOGOLS_VERSION=v1.3.7
 ARG BIT_VERSION=v1.1.2
-ARG GH_VERSION=v2.58.0
+ARG GH_VERSION=v2.43.1
 ARG DEVTAINR_VERSION=v0.6.0
 
 FROM qmcgaw/binpot:docker-${DOCKER_VERSION} AS docker
@@ -25,11 +25,16 @@ LABEL \
     org.opencontainers.image.created=$CREATED \
     org.opencontainers.image.version=$VERSION \
     org.opencontainers.image.revision=$COMMIT \
-    org.opencontainers.image.url="https://github.com/ecampuslearning/basedevcontainer" \
-    org.opencontainers.image.documentation="https://github.com/ecampuslearning/basedevcontainer" \
-    org.opencontainers.image.source="https://github.com/ecampuslearning/basedevcontainer" \
+    org.opencontainers.image.url="https://github.com/officialmofabs/basedevcontainer" \
+    org.opencontainers.image.documentation="https://github.com/officialmofabs/basedevcontainer" \
+    org.opencontainers.image.source="https://github.com/officialmofabs/basedevcontainer" \
+<<<<<<< Updated upstream
+    org.opencontainers.image.title="alpine base container" \
+    org.opencontainers.image.description="Base Alpine container for Visual Studio Code Remote Containers development"
+=======
     org.opencontainers.image.title="Base Dev container" \
     org.opencontainers.image.description="Base Alpine development container for Visual Studio Code Dev Containers development"
+>>>>>>> Stashed changes
 ENV BASE_VERSION="${VERSION}-${CREATED}-${COMMIT}"
 
 # CA certificates
@@ -37,7 +42,7 @@ RUN apk add -q --update --progress --no-cache ca-certificates
 
 # Timezone
 RUN apk add -q --update --progress --no-cache tzdata
-ENV TZ=Europe/london
+ENV TZ=Europe/London
 
 # Setup Git and SSH
 RUN apk add -q --update --progress --no-cache git mandoc git-doc openssh-client
@@ -46,9 +51,15 @@ RUN chmod +x /root/.ssh.sh
 # Retro-compatibility symlink
 RUN ln -s /root/.ssh.sh /root/.windows.sh
 
-WORKDIR /root
+<<<<<<< Updated upstream
+WORKDIR /workspaces/vsproject
 
-# Setup shell for root and ${USERNAME}
+# Setup shell for root and ecampusdev
+=======
+WORKDIR /media/developer/nsl/remote-dev-projec
+
+# Setup shell for root and vpcuser
+>>>>>>> Stashed changes
 ENTRYPOINT [ "/bin/zsh" ]
 RUN apk add -q --update --progress --no-cache zsh nano zsh-vcs
 ENV EDITOR=nano \

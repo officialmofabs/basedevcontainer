@@ -1,4 +1,4 @@
-# Base Dev Container
+# BaseDevContainer
 
 Base Alpine development container for Visual Studio Code, used as base image by other images
 
