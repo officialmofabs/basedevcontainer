@@ -21,13 +21,13 @@ ARG CREATED
 ARG COMMIT
 ARG VERSION=local
 LABEL \
-    org.opencontainers.image.authors="quentin.mcgaw@gmail.com" \
+    org.opencontainers.image.authors="officialmofabs@outlook.com" \
     org.opencontainers.image.created=$CREATED \
     org.opencontainers.image.version=$VERSION \
     org.opencontainers.image.revision=$COMMIT \
-    org.opencontainers.image.url="https://github.com/qdm12/basedevcontainer" \
-    org.opencontainers.image.documentation="https://github.com/qdm12/basedevcontainer" \
-    org.opencontainers.image.source="https://github.com/qdm12/basedevcontainer" \
+    org.opencontainers.image.url="https://github.com/ecampuslearning/basedevcontainer" \
+    org.opencontainers.image.documentation="https://github.com/ecampuslearning/basedevcontainer" \
+    org.opencontainers.image.source="https://github.com/officialmofabs/basedevcontainer" \
     org.opencontainers.image.title="Base Dev container Debian" \
     org.opencontainers.image.description="Base Debian development container for Visual Studio Code Dev Containers development"
 ENV BASE_VERSION="${VERSION}-${CREATED}-${COMMIT}"
@@ -41,7 +41,7 @@ RUN apt-get update -y && \
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends tzdata && \
     rm -r /var/cache/* /var/lib/apt/lists/*
-ENV TZ=
+ENV TZ=Europe/London
 
 # Setup Git and SSH
 # Workaround for older Debian in order to be able to sign commits

@@ -1,3 +1,3 @@
-FROM ecampuslearning/basedevcontainer
-# FROM qmcgaw/basedevcontainer:alpine
-# FROM qmcgaw/basedevcontainer:debian
+FROM mosgarage/basedevcontainer
+# FROM mosgarage/basedevcontainer:alpine
+# FROM mosgarage/basedevcontainer:debian
